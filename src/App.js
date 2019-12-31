@@ -1,6 +1,6 @@
 import React from 'react';
 import Nav from './components/Nav';
-import Logo from './components/Logo';
+import Logo from './components/logo/Logo';
 import './App.css';
 
 function App() {

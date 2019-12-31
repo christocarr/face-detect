@@ -3,7 +3,7 @@ import React from 'react';
 const Nav = () => {
   return (
     <nav>
-      Sign Out
+      <p className="link dim blue underline pointer">Sign Out</p>
     </nav>
   )
 }

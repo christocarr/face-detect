@@ -1,14 +1,12 @@
 import React from 'react';
-import Nav from './components/Nav';
-import Logo from './components/logo/Logo';
+import Header from './components/Header'
 import ImageLink from './components/image-link/ImageLink'
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <Nav />
-      <Logo />
+      <Header />
       <ImageLink />
       {/*<FaceRegocnition /> */}
     </div>

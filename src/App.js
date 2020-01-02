@@ -22,7 +22,7 @@ class App extends Component {
 
   onSubmit = ev => {
     ev.preventDefault()
-    app.models.predict('e263d09d6e604310b00efcae3f385aa8', "https://samples.clarifai.com/metro-north.jpg")
+    app.models.predict(Clarifai.COLOR_MODEL, "https://samples.clarifai.com/metro-north.jpg")
     .then(function(response) {
         console.log(response);
         },

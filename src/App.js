@@ -10,11 +10,17 @@ class App extends Component {
       input: ''
     }
   }
+
+  onInputChange = (ev) => {
+    
+    console.log(ev.target.value)
+  }
+
   render() {
     return (
       <div className="App">
         <Header />
-        <ImageLink />
+        <ImageLink onInputChange={this.onInputChange} />
         {/*<FaceRegocnition /> */}
       </div>
     );

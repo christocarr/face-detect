@@ -1,26 +1,33 @@
 import React, { Component } from 'react';
-import Header from './components/Header'
-import ImageLink from './components/image-link/ImageLink'
+import Header from './components/Header';
+import ImageLink from './components/image-link/ImageLink';
 import './App.css';
 
 class App extends Component {
   constructor() {
-    super()
+    super();
     this.state = {
-      input: ''
-    }
+      input: '',
+    };
   }
 
-  onInputChange = (ev) => {
-    
-    console.log(ev.target.value)
-  }
+  onInputChange = ev => {
+    console.log(ev.target.value);
+  };
+
+  onSubmit = ev => {
+    ev.preventDefault()
+    console.log('click');
+  };
 
   render() {
     return (
       <div className="App">
         <Header />
-        <ImageLink onInputChange={this.onInputChange} />
+        <ImageLink
+          onInputChange={this.onInputChange}
+          onSubmit={this.onSubmit}
+        />
         {/*<FaceRegocnition /> */}
       </div>
     );

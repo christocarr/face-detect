@@ -14,19 +14,21 @@ class App extends Component {
     super();
     this.state = {
       input: '',
+      imgUrl: '',
     };
   }
 
   onInputChange = ev => {
-    console.log(ev.target.value);
+    this.setState({ input: ev.target.value })
   };
 
   onSubmit = ev => {
     ev.preventDefault();
+    this.setState({ imgUrl: this.state.input }, () => console.log(this.state.imgUrl))
     app.models
       .predict(
         Clarifai.COLOR_MODEL,
-        'https://samples.clarifai.com/metro-north.jpg'
+        this.state.input
       )
       .then(
         function(response) {
@@ -44,7 +46,7 @@ class App extends Component {
           onInputChange={this.onInputChange}
           onSubmit={this.onSubmit}
         />
-        <FaceRecognition />
+        <FaceRecognition imgUrl={this.state.imgUrl} />
       </div>
     );
   }

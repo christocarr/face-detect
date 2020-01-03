@@ -2,10 +2,11 @@ import React, { Component } from 'react';
 import Header from './components/Header';
 import ImageLink from './components/image-link/ImageLink';
 import './App.css';
-import Clarifai from 'clarifai'
+import Clarifai from 'clarifai';
+import FaceRecognition from './components/FaceRecognition';
 
 const app = new Clarifai.App({
-  apiKey: 'e263d09d6e604310b00efcae3f385aa8'
+  apiKey: 'e263d09d6e604310b00efcae3f385aa8',
 });
 
 class App extends Component {
@@ -21,15 +22,18 @@ class App extends Component {
   };
 
   onSubmit = ev => {
-    ev.preventDefault()
-    app.models.predict(Clarifai.COLOR_MODEL, "https://samples.clarifai.com/metro-north.jpg")
-    .then(function(response) {
-        console.log(response);
+    ev.preventDefault();
+    app.models
+      .predict(
+        Clarifai.COLOR_MODEL,
+        'https://samples.clarifai.com/metro-north.jpg'
+      )
+      .then(
+        function(response) {
+          console.log(response);
         },
-        function(err) {
-
-        }
-    );
+        function(err) {}
+      );
   };
 
   render() {
@@ -40,7 +44,7 @@ class App extends Component {
           onInputChange={this.onInputChange}
           onSubmit={this.onSubmit}
         />
-        {/*<FaceRegocnition /> */}
+        <FaceRecognition />
       </div>
     );
   }

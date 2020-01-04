@@ -19,33 +19,27 @@ class App extends Component {
   }
 
   onInputChange = ev => {
-    this.setState({ input: ev.target.value })
+    this.setState({ input: ev.target.value });
   };
 
   onSubmit = ev => {
     ev.preventDefault();
-    this.setState({ imgUrl: this.state.input }, () => console.log(this.state.imgUrl))
+    this.setState({ imgUrl: this.state.input }, () =>
+      console.log(this.state.imgUrl)
+    );
     app.models
-      .predict(
-        Clarifai.FACE_DETECT_MODEL,
-        this.state.input
-      )
-      .then(
-        function(response) {
-          console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
-          this.calcFaceLocation(response)
-        },
-        function(err) {}
-      );
+      .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
+      .then(response => this.calcFaceLocation(response))
+      .catch(err => console.log(err));
   };
 
-  calcFaceLocation = (data) => {
-    const faceData = data.outputs[0].data.regions[0].region_info.bounding_box
-    const image = document.getElementById('image')
-    const imageWidth = Number(image.width)
-    const imageHeight = Number(image.height)
-    console.log(imageWidth, imageHeight)
-  }
+  calcFaceLocation = data => {
+    const faceData = data.outputs[0].data.regions[0].region_info.bounding_box;
+    const image = document.getElementById('image');
+    const imageWidth = Number(image.width);
+    const imageHeight = Number(image.height);
+    console.log(imageWidth, imageHeight);
+  };
 
   render() {
     return (

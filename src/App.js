@@ -33,10 +33,19 @@ class App extends Component {
       .then(
         function(response) {
           console.log(response.outputs[0].data.regions[0].region_info.bounding_box);
+          this.calcFaceLocation(response)
         },
         function(err) {}
       );
   };
+
+  calcFaceLocation = (data) => {
+    const faceData = data.outputs[0].data.regions[0].region_info.bounding_box
+    const image = document.getElementById('image')
+    const imageWidth = Number(image.width)
+    const imageHeight = Number(image.height)
+    console.log(imageWidth, imageHeight)
+  }
 
   render() {
     return (

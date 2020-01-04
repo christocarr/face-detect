@@ -29,7 +29,7 @@ class App extends Component {
     );
     app.models
       .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
-      .then(response => this.calcFaceLocation(response))
+      .then(response => this.faceBox(this.calcFaceLocation(response)))
       .catch(err => console.log(err));
   };
 
@@ -45,6 +45,10 @@ class App extends Component {
       bottomRow: imageHeight - (faceData.top_row * imageHeight)
     }
   };
+
+  faceBox = (box) => {
+    console.log(box)
+  }
 
   render() {
     return (

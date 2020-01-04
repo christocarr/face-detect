@@ -38,7 +38,12 @@ class App extends Component {
     const image = document.getElementById('image');
     const imageWidth = Number(image.width);
     const imageHeight = Number(image.height);
-    console.log(imageWidth, imageHeight);
+    return {
+      leftCol: faceData.left_col * imageWidth,
+      topRow: faceData.top_row * imageHeight,
+      rightCol: imageWidth - (faceData.left_col * imageWidth),
+      bottomRow: imageHeight - (faceData.top_row * imageHeight)
+    }
   };
 
   render() {

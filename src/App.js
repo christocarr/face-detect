@@ -15,6 +15,7 @@ class App extends Component {
     this.state = {
       input: '',
       imgUrl: '',
+      faceBox: '',
     };
   }
 
@@ -41,14 +42,14 @@ class App extends Component {
     return {
       leftCol: faceData.left_col * imageWidth,
       topRow: faceData.top_row * imageHeight,
-      rightCol: imageWidth - (faceData.left_col * imageWidth),
-      bottomRow: imageHeight - (faceData.top_row * imageHeight)
-    }
+      rightCol: imageWidth - faceData.left_col * imageWidth,
+      bottomRow: imageHeight - faceData.top_row * imageHeight,
+    };
   };
 
-  faceBox = (box) => {
-    console.log(box)
-  }
+  faceBox = box => {
+    this.setState({ faceBox: box });
+  };
 
   render() {
     return (
@@ -58,7 +59,7 @@ class App extends Component {
           onInputChange={this.onInputChange}
           onSubmit={this.onSubmit}
         />
-        <FaceRecognition imgUrl={this.state.imgUrl} />
+        <FaceRecognition box={this.state.faceBox} imgUrl={this.state.imgUrl} />
       </div>
     );
   }

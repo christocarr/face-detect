@@ -25,9 +25,7 @@ class App extends Component {
 
   onSubmit = ev => {
     ev.preventDefault();
-    this.setState({ imgUrl: this.state.input }, () =>
-      console.log(this.state.imgUrl)
-    );
+    this.setState({ imgUrl: this.state.input })
     app.models
       .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
       .then(response => this.faceBox(this.calcFaceLocation(response)))
@@ -42,8 +40,8 @@ class App extends Component {
     return {
       leftCol: faceData.left_col * imageWidth,
       topRow: faceData.top_row * imageHeight,
-      rightCol: imageWidth - faceData.left_col * imageWidth,
-      bottomRow: imageHeight - faceData.top_row * imageHeight,
+      rightCol: imageWidth - (faceData.right_col * imageWidth),
+      bottomRow: imageHeight - (faceData.bottom_row * imageHeight),
     };
   };
 

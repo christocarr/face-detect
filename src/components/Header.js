@@ -2,11 +2,11 @@ import React from 'react';
 import Logo from './logo/Logo';
 import Nav from './Nav';
 
-const Header = () => {
+const Header = ({ onRouteChange }) => {
   return (
     <header className="flex pa2">
       <Logo />
-      <Nav />
+      <Nav onRouteChange={onRouteChange} />
     </header>
   )
 }

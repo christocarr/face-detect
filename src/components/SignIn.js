@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Signin = () => {
+const Signin = ({ onRouteChange }) => {
   return (
     <article className="pa4 black-80">
       <form action="sign-up_submit" method="get" acceptCharset="utf-8">
@@ -15,7 +15,7 @@ const Signin = () => {
             <input className="b pa2 input-reset ba bg-transparent" type="password" name="password"  id="password" />
           </div>
         </fieldset>
-        <div className="mt3"><input className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Sign In" /></div>
+        <div className="mt3"><input onClick={() => onRouteChange('home')} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Sign In" /></div>
         <a href="" className="mt3">Register</a>
       </form>
     </article>

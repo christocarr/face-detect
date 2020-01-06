@@ -5,7 +5,7 @@ const Register = ({ onRouteChange }) => {
     <article className="pa4 black-80">
       <form action="register_submit" method="get" acceptCharset="utf-8">
         <fieldset id="register" className="ba b--transparent ph0 mh0">
-          <legend className="ph0 mh0 fw6 clip">Register</legend>
+          <legend className="ph0 mh0 fw6">Register</legend>
           <div className="mt3">
             <label className="db fw4 lh-copy f6" htmlFor="name">Name</label>
             <input className="pa2 input-reset ba bg-transparent w-100 measure" type="text" name="name"  id="name" />

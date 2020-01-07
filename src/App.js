@@ -59,9 +59,9 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header onRouteChange={this.onRouteChange} />
         {this.state.route === 'home' ? (
           <div>
+            <Header onRouteChange={this.onRouteChange} />
             <ImageLink
               onInputChange={this.onInputChange}
               onSubmit={this.onSubmit}

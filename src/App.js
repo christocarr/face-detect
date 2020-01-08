@@ -22,6 +22,12 @@ class App extends Component {
     };
   }
 
+  componentDidMount() {
+    fetch('http://localhost:3001')
+      .then(res => res.json())
+      .then(console.log)
+  }
+
   onInputChange = ev => {
     this.setState({ input: ev.target.value });
   };

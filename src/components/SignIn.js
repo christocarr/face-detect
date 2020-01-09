@@ -1,8 +1,8 @@
 import React from 'react';
 
 class Signin extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       signInEmail: '',
       sigInPassword: '',
@@ -17,6 +17,11 @@ class Signin extends React.Component {
     this.setState({ sigInPassword: ev.target.value });
   };
 
+  onSubmitSignIn = () => {
+    console.log(this.state);
+    this.props.onRouteChange('home');
+  };
+
   render() {
     const { onRouteChange } = this.props;
     return (
@@ -29,6 +34,7 @@ class Signin extends React.Component {
                 Email address
               </label>
               <input
+                onChange={this.onEmailChange}
                 className="pa2 input-reset ba bg-transparent w-100 measure"
                 type="email"
                 name="email-address"
@@ -40,6 +46,7 @@ class Signin extends React.Component {
                 Password
               </label>
               <input
+                onChange={this.onPasswordChange}
                 className="b pa2 input-reset ba bg-transparent"
                 type="password"
                 name="password"
@@ -49,7 +56,7 @@ class Signin extends React.Component {
           </fieldset>
           <div className="mt3">
             <input
-              onClick={() => onRouteChange('home')}
+              onClick={() => this.onSubmitSignIn()}
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
               type="submit"
               value="Sign In"

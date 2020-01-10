@@ -17,16 +17,31 @@ class Signin extends React.Component {
     this.setState({ sigInPassword: ev.target.value });
   };
 
-  onSubmitSignIn = () => {
-    console.log(this.state);
-    this.props.onRouteChange('home');
+  onSubmitSignIn = (ev) => {
+    ev.preventDefault()
+    fetch('http://localhost:3001/signin', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: this.state.signInEmail,
+        password: this.state.sigInPassword
+      })
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data === 'success') {
+        this.props.onRouteChange('home');
+      }
+      
+    })
+    .catch(err => console.log(err))
   };
 
   render() {
     const { onRouteChange } = this.props;
     return (
       <article className="pa4 black-80">
-        <form action="sign-up_submit" method="get" acceptCharset="utf-8">
+        <form acceptCharset="utf-8" action="sign-up_submit" method="get">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="ph0 mh0 fw6">Sign Up</legend>
             <div className="mt3">
@@ -56,7 +71,7 @@ class Signin extends React.Component {
           </fieldset>
           <div className="mt3">
             <input
-              onClick={() => this.onSubmitSignIn()}
+              onClick={(ev) => this.onSubmitSignIn(ev)}
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
               type="submit"
               value="Sign In"

@@ -43,7 +43,7 @@ class Signin extends React.Component {
       <article className="pa4 black-80">
         <form acceptCharset="utf-8" action="sign-up_submit" method="get">
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
-            <legend className="ph0 mh0 fw6">Sign Up</legend>
+            <legend className="ph0 mh0 fw6">Sign In</legend>
             <div className="mt3">
               <label className="db fw4 lh-copy f6" htmlFor="email-address">
                 Email address

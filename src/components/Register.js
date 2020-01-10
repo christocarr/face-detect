@@ -20,7 +20,7 @@ const Register = ({ onRouteChange }) => {
           </div>
         </fieldset>
         <div className="mt3"><input onClick={() => onRouteChange('home')} className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6" type="submit" value="Register" /></div>
-        <p className="pointer" onClick={() => onRouteChange('signin')} className="mt3">
+        <p onClick={() => onRouteChange('signin')} className="mt3 pointer">
            Sign In
           </p>
       </form>

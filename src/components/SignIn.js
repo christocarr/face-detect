@@ -76,7 +76,7 @@ class Signin extends React.Component {
               value="Sign In"
             />
           </div>
-          <p onClick={() => onRouteChange('register')} className="mt3">
+          <p onClick={() => onRouteChange('register')} className="mt3 pointer">
             Register
           </p>
         </form>

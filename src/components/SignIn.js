@@ -41,7 +41,7 @@ class Signin extends React.Component {
     const { onRouteChange } = this.props;
     return (
       <article className="pa4 black-80">
-        <form acceptCharset="utf-8" action="sign-up_submit" method="get">
+        <form acceptCharset="utf-8" action="submit" method="get" onSubmit={(ev) => this.onSubmitSignIn(ev)}>
           <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
             <legend className="ph0 mh0 fw6">Sign In</legend>
             <div className="mt3">
@@ -71,7 +71,6 @@ class Signin extends React.Component {
           </fieldset>
           <div className="mt3">
             <input
-              onClick={(ev) => this.onSubmitSignIn(ev)}
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
               type="submit"
               value="Sign In"

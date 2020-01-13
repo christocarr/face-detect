@@ -20,7 +20,7 @@ class App extends Component {
       faceBox: {},
       route: 'signin',
       user: {
-        id: '124',
+        id: '',
         name: '',
         email: '',
         password: '',

@@ -19,6 +19,14 @@ class App extends Component {
       imgUrl: '',
       faceBox: {},
       route: 'signin',
+      user: {
+        id: '124',
+        name: '',
+        email: '',
+        password: '',
+        entries: 0,
+        joined: '',
+      }
     };
   }
 

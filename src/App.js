@@ -30,6 +30,18 @@ class App extends Component {
     };
   }
 
+  loadUser = (data) => {
+    this.setState({user: {
+      id: data.id,
+      name: data.name,
+      email: data.name,
+      password: data.password,
+      entries: data.entries,
+      joined: data.joined
+    }})
+
+  }
+
   onInputChange = ev => {
     this.setState({ input: ev.target.value });
   };
@@ -82,7 +94,7 @@ class App extends Component {
         ) : this.state.route === 'signin' ? (
           <Signin onRouteChange={this.onRouteChange} />
         ) : (
-          <Register onRouteChange={this.onRouteChange} />
+          <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         )}
       </div>
     );

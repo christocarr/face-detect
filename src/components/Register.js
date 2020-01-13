@@ -22,25 +22,27 @@ class Register extends React.Component {
     this.setState({ password: ev.target.value });
   };
 
-  // onSubmitSignIn = (ev) => {
-  //   ev.preventDefault()
-  //   fetch('http://localhost:3001/signin', {
-  //     method: 'POST',
-  //     headers: {'Content-Type': 'application/json'},
-  //     body: JSON.stringify({
-  //       email: this.state.signInEmail,
-  //       password: this.state.sigInPassword
-  //     })
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => {
-  //     if (data === 'success') {
-  //       this.props.onRouteChange('home');
-  //     }
+  onSubmitSignIn = (ev) => {
+    ev.preventDefault()
+    fetch('http://localhost:3001/signin', {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({
+        email: this.state.email,
+        password: this.state.password,
+        name: this.state.name
+      })
+    })
+    .then(response => response.json())
+    .then(user => {
+      if (user) {
+        this.props.loadUser(user)
+        this.props.onRouteChange('home');
+      }
 
-  //   })
-  //   .catch(err => console.log(err))
-  // };
+    })
+    .catch(err => console.log(err))
+  };
 
   render() {
     const { onRouteChange } = this.props;

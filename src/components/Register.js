@@ -22,7 +22,7 @@ class Register extends React.Component {
     this.setState({ password: ev.target.value });
   };
 
-  onSubmitSignIn = (ev) => {
+  onRegister = (ev) => {
     ev.preventDefault()
     fetch('http://localhost:3001/register', {
       method: 'POST',
@@ -48,7 +48,7 @@ class Register extends React.Component {
     const { onRouteChange } = this.props;
     return (
       <article className="pa4 black-80">
-        <form action="register_submit" method="get" acceptCharset="utf-8">
+        <form onSubmit={(ev) => this.onRegister(ev)} action="register_submit" method="get" acceptCharset="utf-8">
           <fieldset id="register" className="ba b--transparent ph0 mh0">
             <legend className="ph0 mh0 fw6">Register</legend>
             <div className="mt3">
@@ -90,7 +90,6 @@ class Register extends React.Component {
           </fieldset>
           <div className="mt3">
             <input
-              onClick={() => onRouteChange('home')}
               className="b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6"
               type="submit"
               value="Register"

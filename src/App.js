@@ -6,6 +6,7 @@ import './App.css';
 import Clarifai from 'clarifai';
 import Signin from './components/SignIn';
 import Register from './components/Register';
+import UserRank from './components/UserRank/UserRank'
 
 const app = new Clarifai.App({
   apiKey: 'e263d09d6e604310b00efcae3f385aa8',
@@ -82,6 +83,7 @@ class App extends Component {
         {this.state.route === 'home' ? (
           <div>
             <Header onRouteChange={this.onRouteChange} />
+            <UserRank />
             <ImageLink
               onInputChange={this.onInputChange}
               onSubmit={this.onSubmit}

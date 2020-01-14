@@ -94,7 +94,7 @@ class App extends Component {
         {this.state.route === 'home' ? (
           <div>
             <Header onRouteChange={this.onRouteChange} />
-            <UserRank />
+            <UserRank userName={this.state.user.name} />
             <ImageLink
               onInputChange={this.onInputChange}
               onSubmit={this.onSubmit}
@@ -105,7 +105,7 @@ class App extends Component {
             />
           </div>
         ) : this.state.route === 'signin' ? (
-          <Signin onRouteChange={this.onRouteChange} />
+          <Signin onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         ) : (
           <Register onRouteChange={this.onRouteChange} loadUser={this.loadUser} />
         )}

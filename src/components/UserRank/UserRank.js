@@ -1,10 +1,10 @@
 import React from 'react'
 import './UserRank.css'
 
-const UserRank = () => {
+const UserRank = ({ userName }) => {
   return (
     <div className="center">
-      <p>Your rank is</p>
+      <p>{userName}, your rank is </p>
     </div>
   )
 }

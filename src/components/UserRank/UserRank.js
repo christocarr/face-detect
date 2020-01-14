@@ -3,7 +3,7 @@ import './UserRank.css'
 
 const UserRank = () => {
   return (
-    <div>
+    <div className="center">
       <p>Your rank is</p>
     </div>
   )

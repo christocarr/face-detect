@@ -17,6 +17,10 @@ class Signin extends React.Component {
     this.setState({ sigInPassword: ev.target.value });
   };
 
+  loadUser = (user) => {
+    console.log(user)
+  }
+
   onSubmitSignIn = (ev) => {
     ev.preventDefault()
     fetch('http://localhost:3001/signin', {
@@ -28,8 +32,9 @@ class Signin extends React.Component {
       })
     })
     .then(response => response.json())
-    .then(data => {
-      if (data === 'success') {
+    .then(user => {
+      if (user) {
+        this.props.loadUser(user)
         this.props.onRouteChange('home');
       }
       

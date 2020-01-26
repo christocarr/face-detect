@@ -94,7 +94,7 @@ class App extends Component {
         {this.state.route === 'home' ? (
           <div>
             <Header onRouteChange={this.onRouteChange} />
-            <UserRank userName={this.state.user.name} />
+            <UserRank userName={this.state.user.name} rank={this.state.user.entries} />
             <ImageLink
               onInputChange={this.onInputChange}
               onSubmit={this.onSubmit}

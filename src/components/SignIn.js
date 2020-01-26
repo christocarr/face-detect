@@ -17,10 +17,6 @@ class Signin extends React.Component {
     this.setState({ sigInPassword: ev.target.value });
   };
 
-  loadUser = (user) => {
-    console.log(user)
-  }
-
   onSubmitSignIn = (ev) => {
     ev.preventDefault()
     fetch('http://localhost:3001/signin', {

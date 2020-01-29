@@ -77,7 +77,6 @@ class App extends Component {
   };
 
   calcFaceLocation = data => {
-    
     const faceData = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('image');
     const imageWidth = Number(image.width);
@@ -95,13 +94,11 @@ class App extends Component {
   };
 
   onRouteChange = route => {
+    if (route === 'signout') {
+      this.setState(initialState)
+    } 
     this.setState({ route: route });
   };
-
-  updateRank = () => {
-    let userEntries = this.state.user.entries
-    this.setState({ userEntries: +1 })
-  }
 
   render() {
     return (

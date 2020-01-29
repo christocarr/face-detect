@@ -54,13 +54,20 @@ class App extends Component {
       .predict(Clarifai.FACE_DETECT_MODEL, this.state.input)
       .then(response => {
         if (response) {
-          fetch('http://localhost:300/image', {
+          fetch('http://localhost:3001/image', {
             method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
               id: this.state.user.id
             })
-          })
+          }).then(response => response.json)
+            .then(count => {
+              this.setState({
+                users: {
+                  entries: count
+                }
+              })
+            })
         }
         this.faceBox(this.calcFaceLocation(response))
       })
@@ -68,6 +75,7 @@ class App extends Component {
   };
 
   calcFaceLocation = data => {
+    
     const faceData = data.outputs[0].data.regions[0].region_info.bounding_box;
     const image = document.getElementById('image');
     const imageWidth = Number(image.width);
@@ -87,6 +95,11 @@ class App extends Component {
   onRouteChange = route => {
     this.setState({ route: route });
   };
+
+  updateRank = () => {
+    let userEntries = this.state.user.entries
+    this.setState({ userEntries: +1 })
+  }
 
   render() {
     return (

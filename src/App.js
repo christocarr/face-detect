@@ -12,23 +12,25 @@ const app = new Clarifai.App({
   apiKey: 'e263d09d6e604310b00efcae3f385aa8',
 });
 
+const initialState = {
+  input: '',
+  imgUrl: '',
+  faceBox: {},
+  route: 'signin',
+  user: {
+    id: '',
+    name: '',
+    email: '',
+    password: '',
+    entries: 0,
+    joined: '',
+  }
+};
+
 class App extends Component {
   constructor() {
     super();
-    this.state = {
-      input: '',
-      imgUrl: '',
-      faceBox: {},
-      route: 'signin',
-      user: {
-        id: '',
-        name: '',
-        email: '',
-        password: '',
-        entries: 0,
-        joined: '',
-      }
-    };
+    this.state = initialState;
   }
 
   loadUser = (data) => {
